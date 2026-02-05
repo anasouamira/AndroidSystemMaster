@@ -1,20 +1,28 @@
 package com.anasouamira.androidsystemmaster.ui
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.navigation.NavController
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.anasouamira.androidsystemmaster.modules.async_coroutines.AsyncScreen
+import com.anasouamira.androidsystemmaster.ui.theme.AndroidSystemMasterTheme
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController ) {
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+
+
     ) {
 
         Text(

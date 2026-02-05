@@ -16,34 +16,42 @@ import kotlinx.coroutines.launch
  */
 class AsyncViewModel : ViewModel() {
 
-    // The situation we display in the UI
-    var uiState: String = "Idle"
+    // The state we display in the UI
+    var uiState by mutableStateOf<UiState>(UiState.Idle)
         private set
 
-    /**
-     *Loading username after a 2-second delay
-     */
-    fun loadUser() {
-        uiState = "Loading User..."
-        viewModelScope.launch {
-            delay(2000) // Simulating a data request from the network
-            uiState = "User: John Doe"
-        }
+    // Data class representing the user and their posts
+    data class UserData(val name: String, val posts: List<String>)
+
+    // UI case representation
+    sealed class UiState {
+        object Idle : UiState()
+        object Loading : UiState()
+        data class Success(val data: UserData) : UiState()
+        data class Error(val message: String) : UiState()
     }
 
     /**
-     *Upload username + posts at the same time
+
+     * User Upload + Posts
+     * Note: This is a simulated data setup without a server.
+
      */
-    fun loadAll() {
-        uiState = "Loading User and Posts..."
+    fun loadUserAndPosts() {
+        uiState = UiState.Loading
         viewModelScope.launch {
-            val userDeferred = async { delay(2000); "John Doe" }
-            val postsDeferred = async { delay(3000); listOf("Post 1", "Post 2") }
+            try {
+                // Data request simulation
+                val userDeferred = async { delay(2000); "Anas Ouamira" }
+                val postsDeferred = async { delay(3000); listOf("Post 1", "Post 2", "Post 3") }
 
-            val user = userDeferred.await()
-            val posts = postsDeferred.await()
+                val user = userDeferred.await()
+                val posts = postsDeferred.await()
 
-            uiState = "User: $user, Posts: ${posts.size}"
+                uiState = UiState.Success(UserData(user, posts))
+            } catch (e: Exception) {
+                uiState = UiState.Error("Failed to load data")
+            }
         }
     }
 }
