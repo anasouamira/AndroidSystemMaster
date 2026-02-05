@@ -9,22 +9,31 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+
+/**
+ * ViewModel of the Asynchronism model
+ * Contains asynchronous data loading logic
+ */
 class AsyncViewModel : ViewModel() {
 
-    // UI state
-    var uiState by mutableStateOf("Idle")
+    // The situation we display in the UI
+    var uiState: String = "Idle"
         private set
 
-    // Load user after delay
+    /**
+     *Loading username after a 2-second delay
+     */
     fun loadUser() {
         uiState = "Loading User..."
         viewModelScope.launch {
-            delay(2000) // simulate network
+            delay(2000) // Simulating a data request from the network
             uiState = "User: John Doe"
         }
     }
 
-    // Load user + posts in parallel
+    /**
+     *Upload username + posts at the same time
+     */
     fun loadAll() {
         uiState = "Loading User and Posts..."
         viewModelScope.launch {
@@ -38,3 +47,4 @@ class AsyncViewModel : ViewModel() {
         }
     }
 }
+
