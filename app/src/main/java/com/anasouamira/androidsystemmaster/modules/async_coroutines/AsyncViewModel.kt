@@ -15,14 +15,11 @@ import kotlinx.coroutines.launch
  * Contains asynchronous data loading logic
  */
 class AsyncViewModel : ViewModel() {
-
     // The state we display in the UI
     var uiState by mutableStateOf<UiState>(UiState.Idle)
         private set
-
     // Data class representing the user and their posts
     data class UserData(val name: String, val posts: List<String>)
-
     // UI case representation
     sealed class UiState {
         object Idle : UiState()
@@ -30,12 +27,9 @@ class AsyncViewModel : ViewModel() {
         data class Success(val data: UserData) : UiState()
         data class Error(val message: String) : UiState()
     }
-
     /**
-
      * User Upload + Posts
      * Note: This is a simulated data setup without a server.
-
      */
     fun loadUserAndPosts() {
         uiState = UiState.Loading

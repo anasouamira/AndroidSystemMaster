@@ -31,7 +31,6 @@ import com.anasouamira.androidsystemmaster.ui.theme.AndroidSystemMasterTheme
 @Composable
 fun AsyncScreen() {
     val viewModel = remember { AsyncViewModel() }
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -45,15 +44,11 @@ fun AsyncScreen() {
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
         )
-
         Spacer(modifier = Modifier.height(16.dp))
-
         Button(onClick = { viewModel.loadUserAndPosts() }) {
             Text("Load User + Posts")
         }
-
         Spacer(modifier = Modifier.height(16.dp))
-
         when (val current = viewModel.uiState) {
             is AsyncViewModel.UiState.Idle -> Text("Press the button to load data")
             is AsyncViewModel.UiState.Loading -> Text("Loading...")
