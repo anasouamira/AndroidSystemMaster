@@ -54,12 +54,12 @@ fun HomeScreen(navController: NavController) {
             Text("Bluetooth")
         }
 
-        Button(onClick = { navController.navigate("unit") }) {
-            Text("Unit Tests")
-        }
-
-        Button(onClick = { navController.navigate("ui") }) {
-            Text("UI Tests")
-        }
+//        Button(onClick = { navController.navigate("unit") }) {
+//            Text("Unit Tests")
+//        }
+//
+//        Button(onClick = { navController.navigate("ui") }) {
+//            Text("UI Tests")
+//        }
     }
 }

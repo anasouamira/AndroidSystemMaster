@@ -54,6 +54,9 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.gms.play.services.location)
+    implementation(libs.androidx.junit.ktx)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,10 +72,13 @@ dependencies {
     implementation(libs.gms.play.services.location)
 
     // Testing
+    // JUnit
     testImplementation(libs.junit)
-    testImplementation(libs.mockito.core)
-    androidTestImplementation (libs.androidx.junit.v116)
-    androidTestImplementation (libs.androidx.espresso.core.v351)
+    // Mockito core
+    testImplementation(libs.mockito.core.v550)
+    // For Kotlin-friendly mocking (optional but recommended)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
 
 
 }

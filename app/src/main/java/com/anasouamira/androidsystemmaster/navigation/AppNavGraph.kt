@@ -2,17 +2,17 @@ package com.anasouamira.androidsystemmaster.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.*
-import com.example.androidsystemmaster.modules.async_coroutines.AsyncModule
-import com.example.androidsystemmaster.modules.workmanager.WorkManagerModule
-import com.example.androidsystemmaster.modules.jobscheduler.JobSchedulerModule
-import com.example.androidsystemmaster.modules.alarmmanager.AlarmManagerModule
-import com.example.androidsystemmaster.modules.permissions.PermissionsModule
-import com.example.androidsystemmaster.modules.location.LocationModule
-import com.example.androidsystemmaster.modules.contentresolver.ContentResolverModule
-import com.example.androidsystemmaster.modules.bluetooth.BluetoothModule
-import com.example.androidsystemmaster.modules.unittests.UnitTestsModule
-import com.example.androidsystemmaster.modules.uitests.UITestsModule
-import com.example.androidsystemmaster.ui.HomeScreen
+import androidx.navigation.compose.rememberNavController
+import com.anasouamira.androidsystemmaster.modules.async_coroutines.AsyncScreen
+import com.anasouamira.androidsystemmaster.modules.workmanager.WorkScreen
+import com.anasouamira.androidsystemmaster.modules.jobscheduler.JobScreen
+import com.anasouamira.androidsystemmaster.modules.alarmmanager.AlarmScreen
+import com.anasouamira.androidsystemmaster.modules.permissions.PermissionScreen
+import com.anasouamira.androidsystemmaster.modules.location.LocationScreen
+import com.anasouamira.androidsystemmaster.modules.contentresolver.ContentScreen
+import com.anasouamira.androidsystemmaster.modules.bluetooth.BluetoothScreen
+import com.anasouamira.androidsystemmaster.ui.HomeScreen
+
 
 @Composable
 fun AppNavGraph() {
@@ -22,15 +22,15 @@ fun AppNavGraph() {
 
         composable("home") { HomeScreen(navController) }
 
-        composable("async") { AsyncModule() }
-        composable("work") { WorkManagerModule() }
-        composable("job") { JobSchedulerModule() }
-        composable("alarm") { AlarmManagerModule() }
-        composable("perm") { PermissionsModule() }
-        composable("location") { LocationModule() }
-        composable("content") { ContentResolverModule() }
-        composable("bluetooth") { BluetoothModule() }
-        composable("unit") { UnitTestsModule() }
-        composable("ui") { UITestsModule() }
+        composable("async") { AsyncScreen() }
+        composable("work") { WorkScreen() }
+        composable("job") { JobScreen() }
+        composable("alarm") { AlarmScreen() }
+        composable("perm") { PermissionScreen() }
+        composable("location") { LocationScreen() }
+        composable("content") { ContentScreen() }
+        composable("bluetooth") { BluetoothScreen() }
+//        composable("unit") { UnitTestsModule() }
+//        composable("ui") { UITestsModule() }
     }
 }
