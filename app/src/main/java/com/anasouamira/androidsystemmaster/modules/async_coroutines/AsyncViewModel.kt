@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
  * ViewModel of the Asynchronism model
  * Contains asynchronous data loading logic
  */
-
 class AsyncViewModel : ViewModel() {
     // The state we display in the UI
     var uiState by mutableStateOf<UiState>(UiState.Idle)
